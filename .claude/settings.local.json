@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(winget upgrade *)",
+      "Bash(jq --version)",
+      "Bash(/e/Python311/python -c ' *)",
+      "Bash(/e/Python311/python *)",
+      "Bash(start *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -sL \"https://raw.githubusercontent.com/anthropics/skills/main/skills/frontend-design/SKILL.md\")",
+      "Bash(curl -sL -w \"\\\\nHTTP_CODE:%{http_code}\" \"https://raw.githubusercontent.com/anthropics/skills/main/skills/frontend-design/SKILL.md\")",
+      "Bash(curl -sL -w \"\\\\nHTTP_CODE:%{http_code}\" \"https://api.github.com/repos/anthropics/skills/contents/skills/frontend-design/SKILL.md\")",
+      "Bash(gh auth *)",
+      "Bash(git clone *)",
+      "Bash(npx skills *)",
+      "Bash(claude plugin *)",
+      "Bash(taskkill //F //IM git.exe)",
+      "Bash(rm -rf '__TRACKED_VAR__/.claude/plugins/marketplaces/thedotmack-*')",
+      "Bash(echo \"exit: $?\")",
+      "Bash(git config *)",
+      "Bash(git ls-remote *)",
+      "Bash(cp \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\架构图.png\" \"E:\\\\personal-web\\\\images\\\\architecture.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\1.png\" \"E:\\\\personal-web\\\\images\\\\screenshot1.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\2.png\" \"E:\\\\personal-web\\\\images\\\\screenshot2.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\3.png\" \"E:\\\\personal-web\\\\images\\\\screenshot3.png\")",
+      "Bash(cp \"C:\\\\Users\\\\Administrator\\\\Desktop\\\\4.png\" \"E:\\\\personal-web\\\\images\\\\screenshot4.png\")"
+    ]
+  }
+}
