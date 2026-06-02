@@ -28,7 +28,7 @@ const i18n = {
     "internship.date": "2026.01 - 2026.02",
     "internship.project": "项目：小红花AI自动化视频生产/营销发布后端系统",
     "internship.tech": "技术栈：FastAPI, SQLAlchemy, PostgreSQL, Redis, Docker, OpenAI, 智谱AI, 对象存储",
-    "internship.work.title": "核心工作",
+    "internship.work.title": "主要工作",
     "internship.work.1.title": "LLM输出解析器设计与实现",
     "internship.work.1.desc": "通过结构化prompt工程与输出格式校验，设计并实现LLM输出解析器，将AI幻觉率控制在3%以内，确保营销文案的准确性与合规性。",
     "internship.work.1.metric": "幻觉率 <3%",
