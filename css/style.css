@@ -343,6 +343,12 @@ body::after {
   font-weight: 500;
   color: var(--text);
 }
+.internship-project-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.7;
+}
 .internship-tech { margin-top: 6px; }
 .internship-tech .tag {
   font-size: 11px;
