@@ -49,21 +49,34 @@
     var lightboxImg = document.getElementById('lightbox-img');
     if (!lightbox || !lightboxImg) return;
 
+    function openLightbox(img) {
+      lightboxImg.src = img.currentSrc || img.src;
+      lightboxImg.alt = img.alt || '';
+      lightbox.classList.add('open');
+      document.body.classList.add('lightbox-open');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.classList.remove('lightbox-open');
+      lightboxImg.removeAttribute('src');
+      lightboxImg.alt = '';
+    }
+
     document.querySelectorAll('.screenshot-item img, .arch-image img').forEach(function(img) {
       img.addEventListener('click', function() {
-        lightboxImg.src = this.src;
-        lightbox.classList.add('open');
+        openLightbox(this);
       });
     });
 
     lightbox.addEventListener('click', function(e) {
       if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-        lightbox.classList.remove('open');
+        closeLightbox();
       }
     });
 
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') lightbox.classList.remove('open');
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
     });
   }
 
@@ -85,10 +98,10 @@
 
   // Init on DOM ready
   function init() {
-    applyTranslations();
-    updateLangButtons();
-    initMobileMenu();
-    initLightbox();
+    try { applyTranslations(); } catch(e) { console.error(e); }
+    try { updateLangButtons(); } catch(e) { console.error(e); }
+    try { initMobileMenu(); } catch(e) { console.error(e); }
+    try { initLightbox(); } catch(e) { console.error(e); }
 
     // Language switch buttons
     document.querySelectorAll('.lang-btn').forEach(btn => {

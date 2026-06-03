@@ -41,7 +41,7 @@ const i18n = {
     "internship.work.3.title": "营销素材管理系统",
     "internship.work.3.desc": "实现营销素材的上传、存储、下载功能，支持图片、文案模板等素材的管理，设计素材分类与标签体系，提升内容生产效率。",
     "internship.work.3.metric": "完整素材管理",
-    "internship.work.3.metric2": "分类标签体系"
+    "internship.work.3.metric2": "分类标签体系",
 
     // Projects
     "projects.title": "项目作品",
@@ -140,7 +140,7 @@ const i18n = {
     "internship.work.3.title": "Marketing Asset Management System",
     "internship.work.3.desc": "Implemented upload, storage, and download functions for marketing assets, supporting image and copy template management with category and tagging system to improve content production efficiency.",
     "internship.work.3.metric": "Complete asset management",
-    "internship.work.3.metric2": "Category tagging system"
+    "internship.work.3.metric2": "Category tagging system",
 
     // Projects
     "projects.title": "Projects",
