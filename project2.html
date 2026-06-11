@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="p2.title">Minicode — 轻量级本地 AI Coding Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">Chuqi Deng</a>
+      <button class="lang-btn" aria-label="Switch language">EN</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="project-hero">
+    <div class="project-hero-inner">
+      <a href="index.html" class="btn-back" data-i18n="back">← 返回首页</a>
+      <h1 class="project-hero-title" data-i18n="p2.title">Minicode — 轻量级本地 AI Coding Agent</h1>
+      <p class="project-hero-desc" data-i18n="p2.desc">参考 Claude Code 架构设计的轻量级本地编码 Agent，以 Session-first / Recovery-first / Runtime-first 为核心，支持会话持久化、安全回退、记忆系统与运行时可观测性。1030+ 测试用例，面向真实本地仓库的长期开发流程。</p>
+      <div class="tags" style="margin-top:20px">
+        <span class="tag">Python</span><span class="tag">Agent</span><span class="tag">Tool Calling</span><span class="tag">Memory System</span><span class="tag">Session</span><span class="tag">Checkpoint/Rewind</span><span class="tag">Claude Code</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="project-body">
+    <div class="project-body-inner">
+
+      <!-- 项目简介 -->
+      <div class="project-section">
+        <h2 data-i18n="p2.intro.title">项目简介</h2>
+        <p data-i18n="p2.intro">参考 Claude Code 架构设计的轻量级本地 AI 编码代理，面向真实本地仓库中的长期开发流程。不只调用模型和工具，更强调会话持久化（inspect / replay / resume）、安全恢复（checkpoint / rewind preview / rewind）与运行时可观测性（widening / verification gate / readiness）。当前测试集 1030 通过、2 跳过，已过原型阶段，是可用的本地产品内核。</p>
+      </div>
+
+      <!-- 技术栈 -->
+      <div class="project-section">
+        <h2 data-i18n="p2.techstack.title">技术栈</h2>
+        <p data-i18n="p2.techstack">Python 3.11+、Agent、Tool Calling、Memory System、Session Management、Checkpoint / Rewind、Claude Code（参考架构）</p>
+      </div>
+
+      <!-- 技术亮点 -->
+      <div class="project-section">
+        <h2 data-i18n="p2.highlights.title">技术亮点</h2>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p2.hl.1.title">Skill 分层路由与工具编排</h3>
+          <p data-i18n="p2.hl.1.desc">设计 Skill 分层路由系统，将原子 Tool、高层 Skill 与 Skill 目录分层组织，结合任务意图识别与元信息标签进行二阶段召回与精排，解决 Skill 目录下的检索噪声、功能重叠与 Token 成本问题。Agent 自主规划工具调用序列，通过 ToolRegistry 统一管理执行。</p>
+        </div>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p2.hl.2.title">分层上下文压缩与记忆系统</h3>
+          <p data-i18n="p2.hl.2.desc">设计上下文管理器动态追踪 Token 消耗，实现记忆感知压缩（memory-aware compaction）；Working Memory 在 compaction 压力下保护当前任务关键信息，Project Memory 在需要时回注领域知识。结合上下文优先级评估，智能保留关键对话历史与任务状态，提升长对话场景执行效率。</p>
+        </div>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p2.hl.3.title">Session 持久化与安全恢复</h3>
+          <p data-i18n="p2.hl.3.desc">Session 可 inspect、replay、resume、做摘要，跨进程存活。文件编辑自动 checkpoint，支持 rewind preview 预演与 rewind 回退（按 latest、步数或 checkpoint id）。Rewind safety group 保障批量回退的一致性，让本地错误编辑可安全撤回。</p>
+        </div>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p2.hl.4.title">运行时控制与可观测性</h3>
+          <p data-i18n="p2.hl.4.desc">实现 CyberneticOrchestrator 作为运行时控制生命周期 facade：卡住时 widening 扩展搜索空间，verification gate 拦截缺少证据的输出，readiness report 区分本地逻辑问题与 provider 可用性问题。Runtime timeline、transcript summary、benchmark artifact 提供完整可观测性。</p>
+        </div>
+      </div>
+
+      <!-- Architecture -->
+      <div class="project-section">
+        <h2>系统架构图</h2>
+        <div class="arch-image">
+          <img src="images/project2-arch.png" alt="Minicode 系统架构图">
+        </div>
+      </div>
+
+      <!-- Screenshots -->
+      <div class="project-section">
+        <h2>界面展示</h2>
+        <div class="screenshots-grid">
+          <div class="screenshot-item"><img src="images/minicode-hero.svg" alt="Minicode 终端界面"></div>
+          <div class="screenshot-item"><img src="images/project2-ss-1.png" alt="界面截图2"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+    <button class="lightbox-close" type="button" aria-label="Close image preview">&times;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  </div>
+
+  <footer class="footer">
+    <span data-i18n="footer">© 2026 邓楚麒. All Rights Reserved.</span>
+  </footer>
+
+  <script src="js/i18n.js?v=2"></script>
+  <script src="js/main.js?v=2"></script>
+</body>
+</html>

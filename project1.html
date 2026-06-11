@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="p1.title">基于SpringBoot与AI视觉的健身动作分析系统</title>
+  <title data-i18n="p1.title">AI Sport — 基于 Agentic RAG 的健身动作分析与智能问答系统</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
@@ -23,10 +23,10 @@
   <section class="project-hero">
     <div class="project-hero-inner">
       <a href="index.html" class="btn-back" data-i18n="back">← 返回首页</a>
-      <h1 class="project-hero-title" data-i18n="p1.title">基于SpringBoot与AI视觉的健身动作分析系统</h1>
-      <p class="project-hero-desc" data-i18n="p1.desc">视频上传→异步分析→多维度逐次评估→报告展示→历史对比→RAG问答→资源清理的业务闭环系统。</p>
+      <h1 class="project-hero-title" data-i18n="p1.title">AI Sport — 基于 Agentic RAG 的健身动作分析与智能问答系统</h1>
+      <p class="project-hero-desc" data-i18n="p1.desc">面向个人健身场景的 Agentic RAG 智能问答系统，围绕 Agent 工具编排、RAG 在线检索、Agent 高可用架构、效果测评与缓存加速完成全链路工程优化，为用户提供训练诊断、报告解读与个性化健身计划。</p>
       <div class="tags" style="margin-top:20px">
-        <span class="tag">SpringBoot</span><span class="tag">MySQL</span><span class="tag">RabbitMQ</span><span class="tag">FastAPI</span><span class="tag">MediaPipe</span><span class="tag">React</span><span class="tag">RAG</span><span class="tag">JMeter</span><span class="tag">腾讯云COS</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">JWT</span><span class="tag">DeepSeek</span>
+        <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">FastAPI</span><span class="tag">Chroma</span><span class="tag">BM25</span><span class="tag">RAGAS</span><span class="tag">DeepSeek</span><span class="tag">Redis</span><span class="tag">Spring Boot</span>
       </div>
     </div>
   </section>
@@ -35,33 +35,53 @@
   <section class="project-body">
     <div class="project-body-inner">
 
-      <!-- Background -->
+      <!-- 项目简介 -->
       <div class="project-section">
-        <h2 data-i18n="p1.background.title">项目背景与目标</h2>
-        <p data-i18n="p1.background">面向健身爱好者与运动训练场景，构建一套视频动作分析平台。用户上传健身视频后，系统异步进行AI姿态分析，生成动作评估报告、关键帧标注与中文建议，支持历史数据对比追踪。</p>
+        <h2 data-i18n="p1.intro.title">项目简介</h2>
+        <p data-i18n="p1.intro">面向个人健身场景的 Agentic RAG 智能问答系统，围绕 Agent 工具编排、RAG 在线检索、Agent 高可用架构、效果测评与缓存加速完成全链路工程优化，为用户提供训练诊断、报告解读与个性化健身计划。</p>
       </div>
 
-      <!-- Challenges -->
+      <!-- 技术栈 -->
       <div class="project-section">
-        <h2 data-i18n="p1.challenge.title">核心挑战</h2>
-        <ul>
-          <li data-i18n="p1.challenge.1">长链路视频分析流程如何保证可靠性，避免HTTP超时</li>
-          <li data-i18n="p1.challenge.2">如何实现逐次动作的多维度评估（深度、节奏、稳定性、对称性）</li>
-          <li data-i18n="p1.challenge.3">如何结合RAG与用户历史数据提供个性化训练问答</li>
-        </ul>
+        <h2 data-i18n="p1.techstack.title">技术栈</h2>
+        <p data-i18n="p1.techstack">Python、LangChain、FastAPI、Chroma、BM25、RAGAS、DeepSeek API、Redis、Spring Boot</p>
       </div>
 
-      <!-- Solution -->
+      <!-- 技术亮点 -->
       <div class="project-section">
-        <h2 data-i18n="p1.solution.title">我的方案</h2>
-        <p data-i18n="p1.solution">设计前后端分离架构，前端React负责视频上传与多维度报告展示，后端SpringBoot管理业务逻辑与任务状态，通过RabbitMQ将上传与分析解耦。Python AI服务层基于MediaPipe实现健身动作的关键点检测、逐次动作的多维度评估（深度评分、节奏分析、稳定性计算、对称性对比），输出结构化分析结果与关键帧渲染。基于RAG框架+Agent编排器，集成知识搜索、分数趋势、训练历史、视频报告等工具，提供个性化问答并支持流式输出。使用腾讯云COS管理媒体资源，Redis缓存热点接口，Docker Compose实现一键启动开发环境。</p>
+        <h2 data-i18n="p1.highlights.title">技术亮点</h2>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p1.hl.1.title">Agent 工具编排与结构化输出</h3>
+          <p data-i18n="p1.hl.1.desc">基于 LangChain 实现 Agent 编排层，定义知识搜索、分数趋势、训练历史、用户记忆、视频报告 5 个工具，Agent 自主完成工具规划、调用执行与结构化答案生成；通过回答 Schema 约束输出格式，前端按结构化字段渲染，实现诊断结论、建议与引用来源的清晰分离。</p>
+        </div>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p1.hl.2.title">Agent 高可用双语言架构</h3>
+          <p data-i18n="p1.hl.2.desc">Python FastAPI 端实现核心 Agent 逻辑，Spring Boot 通过 PythonAgentClient 优先调用 Python Agent，异常或超时时自动回退至 Java 端 Agent；两端共享统一的工具接口契约与回答 Schema，切换对前端透明，保障服务可用性。</p>
+        </div>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p1.hl.3.title">RAG 在线检索全链路</h3>
+          <p data-i18n="p1.hl.3.desc">设计并优化 RAG 检索链路，涵盖 Chroma 稠密向量与 BM25 稀疏检索混合召回、Query Rewriting 查询改写、Rerank 交叉编码精排与引用核查机制；通过低置信度二次检索与问题路由提升召回效果和回答质量。</p>
+        </div>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p1.hl.4.title">检索效果测评与缓存加速</h3>
+          <p data-i18n="p1.hl.4.desc">基于 RAGAS 框架、MRR、Hit Rate 搭建检索与生成联合评估流程，实现对切分策略、召回参数与重排模型的量化分析；Redis 分层缓存复用 QA 结构与向量索引，减少重复 LLM 与 Embedding API 调用。</p>
+        </div>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p1.hl.5.title">增量索引与工厂模式解耦</h3>
+          <p data-i18n="p1.hl.5.desc">设计基于文档 Hash 的增量索引与热更新机制，支持知识文档新增、修改、删除的快速同步；将 Agent 工具、检索器、Reranker、LLM 客户端等链路解耦为可插拔模块，便于效果对比与模型替换。</p>
+        </div>
       </div>
 
       <!-- Architecture -->
       <div class="project-section">
         <h2>系统架构图</h2>
         <div class="arch-image">
-          <img src="images/architecture.png" alt="系统架构图">
+          <img src="images/arch-new.png" alt="系统架构图">
         </div>
       </div>
 
@@ -69,25 +89,14 @@
       <div class="project-section">
         <h2>界面展示</h2>
         <div class="screenshots-grid">
-          <div class="screenshot-item"><img src="images/screenshot1.png" alt="界面截图1"></div>
-          <div class="screenshot-item"><img src="images/screenshot2.png" alt="界面截图2"></div>
-          <div class="screenshot-item"><img src="images/screenshot3.png" alt="界面截图3"></div>
-          <div class="screenshot-item"><img src="images/screenshot4.png" alt="界面截图4"></div>
-          <div class="screenshot-item"><img src="images/screenshot5.png" alt="界面截图5"></div>
-          <div class="screenshot-item"><img src="images/screenshot6.png" alt="界面截图6"></div>
+          <div class="screenshot-item"><img src="images/ss-new-1.png" alt="界面截图1"></div>
+          <div class="screenshot-item"><img src="images/ss-new-2.png" alt="界面截图2"></div>
+          <div class="screenshot-item"><img src="images/ss-new-3.png" alt="界面截图3"></div>
+          <div class="screenshot-item"><img src="images/ss-new-4.png" alt="界面截图4"></div>
+          <div class="screenshot-item"><img src="images/ss-new-5.png" alt="界面截图5"></div>
+          <div class="screenshot-item"><img src="images/ss-new-6.png" alt="界面截图6"></div>
+          <div class="screenshot-item"><img src="images/ss-new-7.png" alt="界面截图7"></div>
         </div>
-      </div>
-
-      <!-- Highlights -->
-      <div class="project-section">
-        <h2 data-i18n="p1.highlights.title">项目成果与亮点</h2>
-        <ol class="highlights">
-          <li data-i18n="p1.highlight.1">设计异步任务架构，基于RabbitMQ解耦上传与分析，配合任务状态机与轮询机制，避免长链路HTTP超时</li>
-          <li data-i18n="p1.highlight.2">封装Python AI推理服务，集成MediaPipe实现8种健身动作的逐次多维度评估——深度评分(45%)、稳定性(20%)、对称性(20%)、节奏加成，输出加权综合评分、诊断建议与关键帧渲染</li>
-          <li data-i18n="p1.highlight.3">构建Agent+RAG智能问答系统，编排知识搜索、分数趋势、训练历史、用户记忆、视频报告5个工具，结合DeepSeek LLM生成个性化训练建议并支持流式输出</li>
-          <li data-i18n="p1.highlight.4">接入COS对象存储与Redis缓存，实现媒体资源治理与热点接口缓存优化</li>
-          <li data-i18n="p1.highlight.5">使用JMeter进行压力测试，覆盖视频上传、分析查询、RAG问答等核心接口，验证系统在高并发场景下的稳定性</li>
-        </ol>
       </div>
 
     </div>

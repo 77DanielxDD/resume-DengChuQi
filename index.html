@@ -93,21 +93,37 @@
   <section id="projects" class="section section-alt">
     <div class="section-inner">
       <h2 class="section-title" data-i18n="projects.title">项目作品</h2>
-      <div class="cards cards-1">
+      <div class="cards cards-2">
         <!-- Project 1 Card -->
         <div class="card">
-          <div class="card-title" data-i18n="project.1.name">基于SpringBoot与AI视觉的健身动作分析系统</div>
+          <div class="card-title" data-i18n="project.1.name">AI Sport — 基于 Agentic RAG 的健身动作分析与智能问答系统</div>
           <div class="card-tags">
-            <span class="tag">SpringBoot</span><span class="tag">MySQL</span><span class="tag">RabbitMQ</span><span class="tag">FastAPI</span><span class="tag">MediaPipe</span><span class="tag">React</span><span class="tag">RAG</span><span class="tag">JMeter</span><span class="tag">COS</span><span class="tag">Redis</span><span class="tag">Docker</span><span class="tag">DeepSeek</span>
+            <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">FastAPI</span><span class="tag">Chroma</span><span class="tag">BM25</span><span class="tag">RAGAS</span><span class="tag">DeepSeek</span><span class="tag">Redis</span><span class="tag">Spring Boot</span>
           </div>
-          <div class="card-desc" data-i18n="project.1.desc">视频上传→异步分析→多维度逐次评估→报告展示→历史对比→RAG问答→资源清理的业务闭环系统。</div>
+          <div class="card-desc" data-i18n="project.1.desc">面向个人健身场景的 Agentic RAG 智能问答系统，围绕 Agent 工具编排、RAG 在线检索、高可用架构、效果测评与缓存加速完成全链路工程优化。</div>
           <ul class="card-highlights">
-            <li data-i18n="project.1.hl.1">RabbitMQ解耦 + 状态机轮询，避免长链路超时</li>
-            <li data-i18n="project.1.hl.2">逐次动作多维度评估：深度·稳定性·对称性·节奏，8种动作类型</li>
-            <li data-i18n="project.1.hl.3">Agent+RAG智能问答：5工具编排 + DeepSeek LLM + 流式输出</li>
-            <li data-i18n="project.1.hl.4">COS对象存储 + Redis缓存热点接口</li>
+            <li data-i18n="project.1.hl.1">Agent 工具编排：LangChain + 5工具定义 + Schema结构化输出</li>
+            <li data-i18n="project.1.hl.2">高可用双语言架构：Python FastAPI + Spring Boot 自动回退</li>
+            <li data-i18n="project.1.hl.3">RAG 全链路：Chroma + BM25 混合召回 + Query Rewriting + Rerank</li>
+            <li data-i18n="project.1.hl.4">效果测评与加速：RAGAS + MRR + Hit Rate + Redis 分层缓存</li>
           </ul>
           <a href="project1.html" class="btn btn-primary" data-i18n="project.1.btn">查看详情</a>
+        </div>
+
+        <!-- Project 2 Card -->
+        <div class="card">
+          <div class="card-title" data-i18n="project.2.name">Minicode — 轻量级本地 AI Coding Agent</div>
+          <div class="card-tags">
+            <span class="tag">Python</span><span class="tag">Agent</span><span class="tag">Tool Calling</span><span class="tag">Memory System</span><span class="tag">Session</span><span class="tag">Checkpoint/Rewind</span>
+          </div>
+          <div class="card-desc" data-i18n="project.2.desc">参考 Claude Code 架构设计的轻量级本地编码 Agent，以 Session-first / Recovery-first / Runtime-first 为核心，支持会话持久化、安全回退、记忆系统与运行时可观测性。</div>
+          <ul class="card-highlights">
+            <li data-i18n="project.2.hl.1">Skill 分层路由：原子Tool → 高层Skill → 目录，二阶段召回精排</li>
+            <li data-i18n="project.2.hl.2">上下文压缩与记忆：memory-aware compaction + Working/Project Memory</li>
+            <li data-i18n="project.2.hl.3">Session 持久化与恢复：inspect / replay / resume + checkpoint / rewind</li>
+            <li data-i18n="project.2.hl.4">运行时可观测性：widening + verification gate + readiness report</li>
+          </ul>
+          <a href="project2.html" class="btn btn-primary" data-i18n="project.2.btn">查看详情</a>
         </div>
       </div>
     </div>

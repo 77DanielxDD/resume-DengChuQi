@@ -597,6 +597,29 @@ body::after {
 
 body.lightbox-open { overflow: hidden; }
 
+/* === Highlight Block (project detail) === */
+.highlight-block {
+  padding: 22px 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-dim);
+  margin-bottom: 16px;
+}
+.highlight-block h3 {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.1px;
+}
+.highlight-block p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
 /* === Highlights (numbered list) === */
 .highlights { list-style: none; padding: 0; counter-reset: hl; }
 .highlights li {
