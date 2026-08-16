@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title data-i18n="p2.title">Minicode — 轻量级本地 AI Coding Agent</title>
+  <title data-i18n="p2.title">HelloAgents — 智能旅行规划助手</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap" rel="stylesheet">
@@ -23,10 +23,10 @@
   <section class="project-hero">
     <div class="project-hero-inner">
       <a href="index.html" class="btn-back" data-i18n="back">← 返回首页</a>
-      <h1 class="project-hero-title" data-i18n="p2.title">Minicode — 轻量级本地 AI Coding Agent</h1>
-      <p class="project-hero-desc" data-i18n="p2.desc">参考 Claude Code 架构设计的轻量级本地编码 Agent，以 Session-first / Recovery-first / Runtime-first 为核心，支持会话持久化、安全回退、记忆系统与运行时可观测性。1030+ 测试用例，面向真实本地仓库的长期开发流程。</p>
+      <h1 class="project-hero-title" data-i18n="p2.title">HelloAgents — 智能旅行规划助手</h1>
+      <p class="project-hero-desc" data-i18n="p2.desc">基于多 Agent 编排构建的可信智能旅行规划系统，依托高德真实 POI 数据源与 LLM 能力实现行程生成闭环，通过候选 ID 约束、规则硬校验、受控自修复与用户记忆机制，保障行程可验证、可降级、高可靠，完成 AI 能力工程化落地。</p>
       <div class="tags" style="margin-top:20px">
-        <span class="tag">Python</span><span class="tag">Agent</span><span class="tag">Tool Calling</span><span class="tag">Memory System</span><span class="tag">Session</span><span class="tag">Checkpoint/Rewind</span><span class="tag">Claude Code</span>
+        <span class="tag">FastAPI</span><span class="tag">Vue3</span><span class="tag">LangGraph</span><span class="tag">GLM-4-flash</span><span class="tag">高德AMAP</span><span class="tag">sqlite-vec</span><span class="tag">Python</span><span class="tag">TypeScript</span>
       </div>
     </div>
   </section>
@@ -38,13 +38,13 @@
       <!-- 项目简介 -->
       <div class="project-section">
         <h2 data-i18n="p2.intro.title">项目简介</h2>
-        <p data-i18n="p2.intro">参考 Claude Code 架构设计的轻量级本地 AI 编码代理，面向真实本地仓库中的长期开发流程。不只调用模型和工具，更强调会话持久化（inspect / replay / resume）、安全恢复（checkpoint / rewind preview / rewind）与运行时可观测性（widening / verification gate / readiness）。当前测试集 1030 通过、2 跳过，已过原型阶段，是可用的本地产品内核。</p>
+        <p data-i18n="p2.intro">基于多 Agent 编排构建的可信智能旅行规划系统，依托高德真实 POI 数据源与 LLM 能力实现行程生成闭环，通过候选 ID 约束、规则硬校验、受控自修复与用户记忆机制，保障行程可验证、可降级、高可靠，完成 AI 能力工程化落地。</p>
       </div>
 
       <!-- 技术栈 -->
       <div class="project-section">
         <h2 data-i18n="p2.techstack.title">技术栈</h2>
-        <p data-i18n="p2.techstack">Python 3.11+、Agent、Tool Calling、Memory System、Session Management、Checkpoint / Rewind、Claude Code（参考架构）</p>
+        <p data-i18n="p2.techstack">FastAPI、Vue3、LangGraph、GLM-4-flash、高德 AMAP、SQLite + sqlite-vec、Python、TypeScript</p>
       </div>
 
       <!-- 技术亮点 -->
@@ -52,23 +52,28 @@
         <h2 data-i18n="p2.highlights.title">技术亮点</h2>
 
         <div class="highlight-block">
-          <h3 data-i18n="p2.hl.1.title">Skill 分层路由与工具编排</h3>
-          <p data-i18n="p2.hl.1.desc">设计 Skill 分层路由系统，将原子 Tool、高层 Skill 与 Skill 目录分层组织，结合任务意图识别与元信息标签进行二阶段召回与精排，解决 Skill 目录下的检索噪声、功能重叠与 Token 成本问题。Agent 自主规划工具调用序列，通过 ToolRegistry 统一管理执行。</p>
+          <h3 data-i18n="p2.hl.1.title">反幻觉 Grounding 体系</h3>
+          <p data-i18n="p2.hl.1.desc">采用 ID 化 PlanDraft 方案——LLM 仅输出候选 ID，真实 POI 由后端延迟回填；通过代码硬规则校验实体一致性（坐标 / poi_id / 地址）、行程约束（天数 / 三餐 / 预算 / 酒店晚数），候选不足直接失败，杜绝虚构景点、坐标等幻觉问题。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p2.hl.2.title">分层上下文压缩与记忆系统</h3>
-          <p data-i18n="p2.hl.2.desc">设计上下文管理器动态追踪 Token 消耗，实现记忆感知压缩（memory-aware compaction）；Working Memory 在 compaction 压力下保护当前任务关键信息，Project Memory 在需要时回注领域知识。结合上下文优先级评估，智能保留关键对话历史与任务状态，提升长对话场景执行效率。</p>
+          <h3 data-i18n="p2.hl.2.title">选择器调度 + LangGraph 双轨编排</h3>
+          <p data-i18n="p2.hl.2.desc">低成本规则预筛结合 GLM 意图识别，条件路由至 plan / diagnose / clarify 等分支；以 LangGraph StateGraph 为主引擎，异常自动降级到原生 Python 工作流；配合 AMAP 连接池、两级缓存、限流重试与外部依赖非阻断降级，兼顾编排灵活度与稳定性。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p2.hl.3.title">Session 持久化与安全恢复</h3>
-          <p data-i18n="p2.hl.3.desc">Session 可 inspect、replay、resume、做摘要，跨进程存活。文件编辑自动 checkpoint，支持 rewind preview 预演与 rewind 回退（按 latest、步数或 checkpoint id）。Rewind safety group 保障批量回退的一致性，让本地错误编辑可安全撤回。</p>
+          <h3 data-i18n="p2.hl.3.title">多候选生成 + 混合重排策略</h3>
+          <p data-i18n="p2.hl.3.desc">compact / balanced / coverage 多策略产出差异化候选，融合规则分与 BGE-reranker 模型语义重排分，分数接近时用多样性择优，改善单次生成不稳定、候选同质化问题。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p2.hl.4.title">运行时控制与可观测性</h3>
-          <p data-i18n="p2.hl.4.desc">实现 CyberneticOrchestrator 作为运行时控制生命周期 facade：卡住时 widening 扩展搜索空间，verification gate 拦截缺少证据的输出，readiness report 区分本地逻辑问题与 provider 可用性问题。Runtime timeline、transcript summary、benchmark artifact 提供完整可观测性。</p>
+          <h3 data-i18n="p2.hl.4.title">可控长期记忆系统</h3>
+          <p data-i18n="p2.hl.4.desc">基于 sqlite-vec + BGE-M3 构建结构化画像 + 向量双轨记忆，规划时注入用户偏好摘要；增设 memory_boundary 硬约束——记忆仅影响偏好与排序、不新增候选外实体，当前输入优先于历史，平衡个性化与防幻觉。</p>
+        </div>
+
+        <div class="highlight-block">
+          <h3 data-i18n="p2.hl.5.title">自修复 + 量化评测闭环</h3>
+          <p data-i18n="p2.hl.5.desc">解析或规则校验失败时复用同一候选上下文执行单次受控 Repair，修复后重新评估、指标优化才替换；评测采用固定 Fixture + 真实链路 eval 脚本，代码规则裁判输出 hardpass / soft_score 等指标，模型与提示词改动靠评测横向对比，数据驱动迭代。</p>
         </div>
       </div>
 
@@ -76,7 +81,7 @@
       <div class="project-section">
         <h2>系统架构图</h2>
         <div class="arch-image">
-          <img src="images/project2-arch.png" alt="Minicode 系统架构图">
+          <img src="images/0.png" alt="HelloAgents 系统架构图">
         </div>
       </div>
 
@@ -84,8 +89,10 @@
       <div class="project-section">
         <h2>界面展示</h2>
         <div class="screenshots-grid">
-          <div class="screenshot-item"><img src="images/minicode-hero.svg" alt="Minicode 终端界面"></div>
-          <div class="screenshot-item"><img src="images/project2-ss-1.png" alt="界面截图2"></div>
+          <div class="screenshot-item"><img src="images/1.png" alt="界面截图1"></div>
+          <div class="screenshot-item"><img src="images/2.png" alt="界面截图2"></div>
+          <div class="screenshot-item"><img src="images/3.png" alt="界面截图3"></div>
+          <div class="screenshot-item"><img src="images/4.png" alt="界面截图4"></div>
         </div>
       </div>
 

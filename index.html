@@ -37,11 +37,10 @@
         <div class="skills-block">
           <div class="skills-label" data-i18n="skills.title">专业技能</div>
           <ul class="skills-list">
-            <li data-i18n="skill.1">熟悉 SpringBoot、FastAPI、ElementPlus，能快速搭建前后端分离的 Web 应用</li>
-            <li data-i18n="skill.2">熟悉 RAG 全链路设计与优化：召回策略、响应质量、系统性能调优</li>
-            <li data-i18n="skill.3">熟悉 Agent 原理（任务规划、工具调用、记忆系统）与 Coze、LangChain 框架的 WorkFlow 搭建</li>
-            <li data-i18n="skill.4">熟练使用 Claude Code、Codex 等 AI 编程工具，具备 VibeCoding 经验，能独立完成需求拆解→模块交付的全流程闭环</li>
-            <li data-i18n="skill.5">熟悉 Git 版本控制、Docker 容器化技术</li>
+            <li data-i18n="skill.1">了解 RAG 全链路设计与优化，了解 Camel、LangGraph 等框架的运用场景，能够结合业务场景对系统性能进行针对性优化</li>
+            <li data-i18n="skill.2">了解 Agent 基本原理，了解任务规划、工具调用、流程编排等核心机制，了解 Coze、Dify 等平台的操作</li>
+            <li data-i18n="skill.3">熟悉 Claude Code、Cursor 等 IDE 工具的使用，能够结合实际场景进行使用与实践</li>
+            <li data-i18n="skill.4">熟悉 Vibe Coding、SDD、Harness Engineering 等多种 AI 编程模式，能快速搭建前后端分离的 Web 应用</li>
           </ul>
         </div>
       </div>
@@ -112,16 +111,16 @@
 
         <!-- Project 2 Card -->
         <div class="card">
-          <div class="card-title" data-i18n="project.2.name">Minicode — 轻量级本地 AI Coding Agent</div>
+          <div class="card-title" data-i18n="project.2.name">HelloAgents — 智能旅行规划助手</div>
           <div class="card-tags">
-            <span class="tag">Python</span><span class="tag">Agent</span><span class="tag">Tool Calling</span><span class="tag">Memory System</span><span class="tag">Session</span><span class="tag">Checkpoint/Rewind</span>
+            <span class="tag">FastAPI</span><span class="tag">Vue3</span><span class="tag">LangGraph</span><span class="tag">GLM-4-flash</span><span class="tag">高德AMAP</span><span class="tag">sqlite-vec</span>
           </div>
-          <div class="card-desc" data-i18n="project.2.desc">参考 Claude Code 架构设计的轻量级本地编码 Agent，以 Session-first / Recovery-first / Runtime-first 为核心，支持会话持久化、安全回退、记忆系统与运行时可观测性。</div>
+          <div class="card-desc" data-i18n="project.2.desc">基于多 Agent 编排构建的可信智能旅行规划系统，依托高德真实 POI 数据源与 LLM 能力实现行程生成闭环，通过候选 ID 约束、规则硬校验、受控自修复与用户记忆机制，保障行程可验证、可降级、高可靠。</div>
           <ul class="card-highlights">
-            <li data-i18n="project.2.hl.1">Skill 分层路由：原子Tool → 高层Skill → 目录，二阶段召回精排</li>
-            <li data-i18n="project.2.hl.2">上下文压缩与记忆：memory-aware compaction + Working/Project Memory</li>
-            <li data-i18n="project.2.hl.3">Session 持久化与恢复：inspect / replay / resume + checkpoint / rewind</li>
-            <li data-i18n="project.2.hl.4">运行时可观测性：widening + verification gate + readiness report</li>
+            <li data-i18n="project.2.hl.1">反幻觉 Grounding：ID 化 PlanDraft + 代码硬规则校验，杜绝虚构景点与坐标</li>
+            <li data-i18n="project.2.hl.2">选择器调度 + LangGraph 双轨编排：异常自动降级，外部依赖非阻断</li>
+            <li data-i18n="project.2.hl.3">多候选生成 + 混合重排：规则分 + BGE-reranker 语义重排 + 多样性择优</li>
+            <li data-i18n="project.2.hl.4">可控长期记忆：sqlite-vec + BGE-M3 双轨记忆 + memory_boundary 硬约束</li>
           </ul>
           <a href="project2.html" class="btn btn-primary" data-i18n="project.2.btn">查看详情</a>
         </div>
