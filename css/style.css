@@ -276,6 +276,14 @@ body::after {
   letter-spacing: -0.2px;
   line-height: 1.25;
 }
+.project-date {
+  margin-top: -4px;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.4;
+}
 .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
 .card-tags .tag {
   font-size: 11px;
