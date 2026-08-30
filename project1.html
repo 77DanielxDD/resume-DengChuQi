@@ -24,9 +24,9 @@
     <div class="project-hero-inner">
       <a href="index.html" class="btn-back" data-i18n="back">← 返回首页</a>
       <h1 class="project-hero-title" data-i18n="p1.title">AI Sport — 基于 Agentic RAG 的健身动作分析与智能问答系统</h1>
-      <p class="project-hero-desc" data-i18n="p1.desc">面向个人健身场景的 Agentic RAG 智能问答系统，围绕 Agent 工具编排、RAG 在线检索、Agent 高可用架构、效果测评与缓存加速完成全链路工程优化，为用户提供训练诊断、报告解读与个性化健身计划。</p>
+      <p class="project-hero-desc" data-i18n="p1.desc">基于 Spring Boot + FastAPI + LangChain Agentic RAG 的健身分析系统。支持视频异步分析评分、多意图工具调用、RAG 知识库问答，结构化输出带引用的训练建议，配套离线检索评测闭环。</p>
       <div class="tags" style="margin-top:20px">
-        <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">FastAPI</span><span class="tag">Chroma</span><span class="tag">BM25</span><span class="tag">RAGAS</span><span class="tag">DeepSeek</span><span class="tag">Redis</span><span class="tag">Spring Boot</span>
+        <span class="tag">Spring Boot</span><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">MediaPipe</span><span class="tag">OpenCV</span><span class="tag">Chroma</span><span class="tag">BM25</span><span class="tag">RabbitMQ</span><span class="tag">Redis</span><span class="tag">SSE</span>
       </div>
     </div>
   </section>
@@ -38,13 +38,13 @@
       <!-- 项目简介 -->
       <div class="project-section">
         <h2 data-i18n="p1.intro.title">项目简介</h2>
-        <p data-i18n="p1.intro">面向个人健身场景的 Agentic RAG 智能问答系统，围绕 Agent 工具编排、RAG 在线检索、Agent 高可用架构、效果测评与缓存加速完成全链路工程优化，为用户提供训练诊断、报告解读与个性化健身计划。</p>
+        <p data-i18n="p1.intro">基于 Spring Boot + FastAPI + LangChain Agentic RAG 的健身分析系统。支持视频异步分析评分、多意图工具调用、RAG 知识库问答，结构化输出带引用的训练建议，配套离线检索评测闭环。</p>
       </div>
 
       <!-- 技术栈 -->
       <div class="project-section">
         <h2 data-i18n="p1.techstack.title">技术栈</h2>
-        <p data-i18n="p1.techstack">Python、LangChain、FastAPI、Chroma、BM25、RAGAS、DeepSeek API、Redis、Spring Boot</p>
+        <p data-i18n="p1.techstack">Spring Boot、FastAPI、LangChain、MediaPipe、OpenCV、Chroma、BM25、BAAI/bge-reranker-v2-m3、RabbitMQ、Redis、SSE、pytrec_eval</p>
       </div>
 
       <!-- 技术亮点 -->
@@ -52,36 +52,23 @@
         <h2 data-i18n="p1.highlights.title">技术亮点</h2>
 
         <div class="highlight-block">
-          <h3 data-i18n="p1.hl.1.title">Agent 工具编排与结构化输出</h3>
-          <p data-i18n="p1.hl.1.desc">基于 LangChain 实现 Agent 编排层，定义知识搜索、分数趋势、训练历史、用户记忆、视频报告 5 个工具，Agent 自主完成工具规划、调用执行与结构化答案生成；通过回答 Schema 约束输出格式，前端按结构化字段渲染，实现诊断结论、建议与引用来源的清晰分离。</p>
+          <h3 data-i18n="p1.hl.1.title">双端职责解耦</h3>
+          <p data-i18n="p1.hl.1.desc">Java 处理鉴权、MQ 异步任务调度；Python 实现 MediaPipe 姿态分析、Agent、RAG 检索生成。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p1.hl.2.title">Agent 高可用双语言架构</h3>
-          <p data-i18n="p1.hl.2.desc">Python FastAPI 端实现核心 Agent 逻辑，Spring Boot 通过 PythonAgentClient 优先调用 Python Agent，异常或超时时自动回退至 Java 端 Agent；两端共享统一的工具接口契约与回答 Schema，切换对前端透明，保障服务可用性。</p>
+          <h3 data-i18n="p1.hl.2.title">多意图工具编排与降级兜底</h3>
+          <p data-i18n="p1.hl.2.desc">基于 LangChain 编排 5 类工具完成多意图工具调用，Schema 结构化输出；处理 LLM 返回截断 / 非 JSON / 空响应等异常，配置规则降级兜底。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p1.hl.3.title">RAG 在线检索全链路</h3>
-          <p data-i18n="p1.hl.3.desc">设计并优化 RAG 检索链路，涵盖 Chroma 稠密向量与 BM25 稀疏检索混合召回、Query Rewriting 查询改写、Rerank 交叉编码精排与引用核查机制；通过低置信度二次检索与问题路由提升召回效果和回答质量。</p>
+          <h3 data-i18n="p1.hl.3.title">异步分析不阻塞</h3>
+          <p data-i18n="p1.hl.3.desc">针对视频分析耗时过长痛点：高帧率、原始分辨率视频曾使单任务长时间卡 PROCESSING、前端干等。基于 RabbitMQ、Redis、SSE 实现异步分析、缓存加速和状态推送 + 断线指数退避轮询，实现分析不阻塞、前端不挂死。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p1.hl.4.title">检索效果测评与缓存加速</h3>
-          <p data-i18n="p1.hl.4.desc">基于 RAGAS 框架、MRR、Hit Rate 搭建检索与生成联合评估流程，实现对切分策略、召回参数与重排模型的量化分析；Redis 分层缓存复用 QA 结构与向量索引，减少重复 LLM 与 Embedding API 调用。</p>
-        </div>
-
-        <div class="highlight-block">
-          <h3 data-i18n="p1.hl.5.title">增量索引与工厂模式解耦</h3>
-          <p data-i18n="p1.hl.5.desc">设计基于文档 Hash 的增量索引与热更新机制，支持知识文档新增、修改、删除的快速同步；将 Agent 工具、检索器、Reranker、LLM 客户端等链路解耦为可插拔模块，便于效果对比与模型替换。</p>
-        </div>
-      </div>
-
-      <!-- Architecture -->
-      <div class="project-section">
-        <h2>系统架构图</h2>
-        <div class="arch-image">
-          <img src="images/arch-new.png" alt="系统架构图">
+          <h3 data-i18n="p1.hl.4.title">可量化的评测闭环</h3>
+          <p data-i18n="p1.hl.4.desc">按标准 qrels/run 完成 RAG 多指标评测（MAP / NDCG@10 / Recall@K / MRR）；自建 20 条 Agent 固定测试集，意图识别准确率、工具计划匹配率、工具选择 Precision / Recall / F1、grounding 覆盖率均 100%；真实链路回归接口成功率 20/20。</p>
         </div>
       </div>
 

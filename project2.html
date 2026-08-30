@@ -24,9 +24,9 @@
     <div class="project-hero-inner">
       <a href="index.html" class="btn-back" data-i18n="back">← 返回首页</a>
       <h1 class="project-hero-title" data-i18n="p2.title">HelloAgents — 智能旅行规划助手</h1>
-      <p class="project-hero-desc" data-i18n="p2.desc">基于多 Agent 编排构建的可信智能旅行规划系统，依托高德真实 POI 数据源与 LLM 能力实现行程生成闭环，通过候选 ID 约束、规则硬校验、受控自修复与用户记忆机制，保障行程可验证、可降级、高可靠，完成 AI 能力工程化落地。</p>
+      <p class="project-hero-desc" data-i18n="p2.desc">基于 FastAPI + LangGraph + 高德 MCP 的旅行规划智能体。支持意图路由、用户偏好记忆、多候选生成与规则评测，以候选 ID 约束自主编排真实景点与酒店，如按预算生成每日可验证的完整行程。</p>
       <div class="tags" style="margin-top:20px">
-        <span class="tag">FastAPI</span><span class="tag">Vue3</span><span class="tag">LangGraph</span><span class="tag">GLM-4-flash</span><span class="tag">高德AMAP</span><span class="tag">sqlite-vec</span><span class="tag">Python</span><span class="tag">TypeScript</span>
+        <span class="tag">FastAPI</span><span class="tag">LangGraph</span><span class="tag">高德MCP</span><span class="tag">SQLite</span><span class="tag">sqlite-vec</span><span class="tag">BGE-M3</span><span class="tag">BGE Reranker</span><span class="tag">Python</span><span class="tag">TypeScript</span>
       </div>
     </div>
   </section>
@@ -38,13 +38,13 @@
       <!-- 项目简介 -->
       <div class="project-section">
         <h2 data-i18n="p2.intro.title">项目简介</h2>
-        <p data-i18n="p2.intro">基于多 Agent 编排构建的可信智能旅行规划系统，依托高德真实 POI 数据源与 LLM 能力实现行程生成闭环，通过候选 ID 约束、规则硬校验、受控自修复与用户记忆机制，保障行程可验证、可降级、高可靠，完成 AI 能力工程化落地。</p>
+        <p data-i18n="p2.intro">基于 FastAPI + LangGraph + 高德 MCP 的旅行规划智能体。支持意图路由、用户偏好记忆、多候选生成与规则评测，以候选 ID 约束自主编排真实景点与酒店，如按预算生成每日可验证的完整行程。</p>
       </div>
 
       <!-- 技术栈 -->
       <div class="project-section">
         <h2 data-i18n="p2.techstack.title">技术栈</h2>
-        <p data-i18n="p2.techstack">FastAPI、Vue3、LangGraph、GLM-4-flash、高德 AMAP、SQLite + sqlite-vec、Python、TypeScript</p>
+        <p data-i18n="p2.techstack">FastAPI、LangGraph、高德 MCP、SQLite + sqlite-vec、BGE-M3、bge-reranker-v2-m3、Python、TypeScript</p>
       </div>
 
       <!-- 技术亮点 -->
@@ -52,36 +52,23 @@
         <h2 data-i18n="p2.highlights.title">技术亮点</h2>
 
         <div class="highlight-block">
-          <h3 data-i18n="p2.hl.1.title">反幻觉 Grounding 体系</h3>
-          <p data-i18n="p2.hl.1.desc">采用 ID 化 PlanDraft 方案——LLM 仅输出候选 ID，真实 POI 由后端延迟回填；通过代码硬规则校验实体一致性（坐标 / poi_id / 地址）、行程约束（天数 / 三餐 / 预算 / 酒店晚数），候选不足直接失败，杜绝虚构景点、坐标等幻觉问题。</p>
+          <h3 data-i18n="p2.hl.1.title">真实数据接入</h3>
+          <p data-i18n="p2.hl.1.desc">持久连接池 + 并发控制 + 两级缓存，第三方调用统一超时管控、失败自动重连 → 暖缓存候选编译约 2.85s、命中率近 100%，错误响应不缓存。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p2.hl.2.title">选择器调度 + LangGraph 双轨编排</h3>
-          <p data-i18n="p2.hl.2.desc">低成本规则预筛结合 GLM 意图识别，条件路由至 plan / diagnose / clarify 等分支；以 LangGraph StateGraph 为主引擎，异常自动降级到原生 Python 工作流；配合 AMAP 连接池、两级缓存、限流重试与外部依赖非阻断降级，兼顾编排灵活度与稳定性。</p>
+          <h3 data-i18n="p2.hl.2.title">生成质量</h3>
+          <p data-i18n="p2.hl.2.desc">一次生成 3 套差异化候选，规则优先 + 语义重排，不合格方案不参与择优；fast 模式架构层面省约 75% LLM 调用；另外支持多 Agent 模式：拆分景点 / 天气 / 酒店 / 规划 4 个子任务，子模块自主调工具取真实数据后组装行程。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p2.hl.3.title">多候选生成 + 混合重排策略</h3>
-          <p data-i18n="p2.hl.3.desc">compact / balanced / coverage 多策略产出差异化候选，融合规则分与 BGE-reranker 模型语义重排分，分数接近时用多样性择优，改善单次生成不稳定、候选同质化问题。</p>
+          <h3 data-i18n="p2.hl.3.title">用户偏好记忆</h3>
+          <p data-i18n="p2.hl.3.desc">实现结构化 + 向量双轨记忆，规划阶段自动注入；只调整节奏与排序、不生成事实，加载异常自动降级。</p>
         </div>
 
         <div class="highlight-block">
-          <h3 data-i18n="p2.hl.4.title">可控长期记忆系统</h3>
-          <p data-i18n="p2.hl.4.desc">基于 sqlite-vec + BGE-M3 构建结构化画像 + 向量双轨记忆，规划时注入用户偏好摘要；增设 memory_boundary 硬约束——记忆仅影响偏好与排序、不新增候选外实体，当前输入优先于历史，平衡个性化与防幻觉。</p>
-        </div>
-
-        <div class="highlight-block">
-          <h3 data-i18n="p2.hl.5.title">自修复 + 量化评测闭环</h3>
-          <p data-i18n="p2.hl.5.desc">解析或规则校验失败时复用同一候选上下文执行单次受控 Repair，修复后重新评估、指标优化才替换；评测采用固定 Fixture + 真实链路 eval 脚本，代码规则裁判输出 hardpass / soft_score 等指标，模型与提示词改动靠评测横向对比，数据驱动迭代。</p>
-        </div>
-      </div>
-
-      <!-- Architecture -->
-      <div class="project-section">
-        <h2>系统架构图</h2>
-        <div class="arch-image">
-          <img src="images/0.png" alt="HelloAgents 系统架构图">
+          <h3 data-i18n="p2.hl.4.title">评测与回归</h3>
+          <p data-i18n="p2.hl.4.desc">LangGraph 图编排 + 纯 Python 双轨，异常自动回退不单点故障；代码规则裁判（非 LLM Judge）确定性可回归 → 200+ 单测，候选质量 / 规则命中 / rerank 调用持续回归。</p>
         </div>
       </div>
 
