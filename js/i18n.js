@@ -10,7 +10,7 @@ const i18n = {
 
     // Hero
     "hero.name": "邓楚麒",
-    "hero.title": "Agent应用开发",
+    "hero.title": "AI 应用开发/全栈开发",
     "hero.bio": "热衷于构建高性能后端系统与AI驱动的应用，具备全链路开发与系统集成经验。",
 
     // Skills
@@ -22,8 +22,8 @@ const i18n = {
     // Internship
     "internship.title": "实习经历",
     "internship.company": "深圳市喜国科技有限公司",
-    "internship.role": "后端开发",
-    "internship.date": "2026.01 - 2026.02",
+    "internship.role": "AI 应用开发",
+    "internship.date": "2025.12 - 2026.02",
     "internship.project": "参与小红花AI自动化视频生产/营销发布后端系统开发",
     "internship.project.desc": "基于FastAPI构建的企业级AI内容生产平台，集成大语言模型（OpenAI/智谱）实现热门内容学习、智能文案生成、视频自动化制作与多平台分发。系统采用模块化架构，保障开发效率与生产稳定性。",
     "internship.tech": "技术栈：FastAPI, SQLAlchemy, PostgreSQL, Redis, Docker, OpenAI, 智谱AI, 对象存储",
@@ -126,7 +126,7 @@ const i18n = {
 
     // Hero
     "hero.name": "Chuqi Deng",
-    "hero.title": "Agent Application Developer",
+    "hero.title": "AI Application / Full-Stack Developer",
     "hero.bio": "Passionate about building high-performance backend systems and AI-driven applications, with full-stack development and system integration experience.",
 
     // Skills
@@ -138,8 +138,8 @@ const i18n = {
     // Internship
     "internship.title": "Internship Experience",
     "internship.company": "Shenzhen Xiguo Technology Co., Ltd.",
-    "internship.role": "Backend Developer",
-    "internship.date": "2026.01 - 2026.02",
+    "internship.role": "AI Application Developer",
+    "internship.date": "2025.12 - 2026.02",
     "internship.project": "Participated in backend development of the LittleRedFlower AI automated video production / marketing distribution system",
     "internship.project.desc": "An enterprise-grade AI content production platform built on FastAPI, integrating LLMs (OpenAI/ZhipuAI) for trending content learning, intelligent copy generation, automated video production, and multi-platform distribution. The system adopts a modular architecture to ensure development efficiency and production stability.",
     "internship.tech": "Tech Stack: FastAPI, SQLAlchemy, PostgreSQL, Redis, Docker, OpenAI, ZhipuAI, Object Storage",
